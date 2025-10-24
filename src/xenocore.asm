@@ -40,6 +40,8 @@ main:
   cmp eax, [rbp-4]
   jne .for_args
 
+
+.fini_main:
   ; deinit
   add rsp, 32 ; restore stack frame
   mov rsp, rbp
@@ -53,12 +55,7 @@ main:
   call log_error
 
   ; restore stack frame
-  add rsp, 32
-  mov rsp, rbp
-  pop rbp
-
-  xor eax, eax
-  ret
+  jmp .fini_main
 
 ; void xeno_init(void)
 xeno_init:
