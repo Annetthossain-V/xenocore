@@ -29,7 +29,11 @@ main:
   mov [rbp-16], DWORD 1
 .for_args:
   ; for (int i = 0; i < argc; i++)
+  mov eax, [rbp-16]
 
+  mov rsi, [rbp-12]
+  mov rdi, [rsi + rax * 8]
+  call log_info
 
 
   ; check if eax == argc
@@ -66,13 +70,5 @@ xeno_init:
 xeno_fini:
   xor eax, eax
   ret
-
-global xenobytes
-; bool xenobytes(uint8* bytes)
-xenobytes:
-  xor eax, eax
-  ret
-
-
 
 
