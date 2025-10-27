@@ -3,7 +3,8 @@ project(xenocore LANGUAGES C ASM_NASM)
 
 set(CMAKE_ASM_NASM_OBJECT_FORMAT elf64)
 
-file(GLOB _SOURCE "src/*.asm" "src/*.c" "src/util/*.asm" "src/util/*.c" )
+file(GLOB _SOURCE "src/*.asm" "src/*.c" "src/util/*.asm" "src/util/*.c" "src/data/*.c"
+                  "src/builtin/*.asm" "src/builtin/*.c" )
 
 add_executable(${PROJECT_NAME} ${_SOURCE})
 
